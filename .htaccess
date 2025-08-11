@@ -1,0 +1,11 @@
+# Turn on rewrite rules (Apache feature)
+RewriteEngine On
+
+# If the thing the user asks for is NOT a file...
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# ...and it's also NOT a folder...
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# ...then rewrite the URL to go to index.php?page=whatever
+RewriteRule ^([^/]+)$ index.php?page=$1 [QSA,L]

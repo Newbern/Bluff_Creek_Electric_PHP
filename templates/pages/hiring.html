@@ -1,0 +1,66 @@
+
+
+    <div class="page-block">
+        <!-- Contact us form -->
+        <div class="contact-block">
+
+            <!-- Text -->
+            <div class="text-cluster">
+                <h1>Join Our Team!</h1>
+                <p>Looking to start or grow your career in the electrical industry?
+                    We're always on the lookout for hardworking, reliable individuals to become part of our team.
+                    Fill out the form below to apply or express your interest, and we’ll be in touch soon.
+                    Whether you're experienced or ready to work, we’d love to hear from you!</p>
+            </div>
+
+            <!-- Form -->
+            <form method="post" class="form-block" enctype="multipart/form-data">
+
+                <!-- Resume -->
+                <div class="data-block">
+                    <label class="label-block">Resume</label>
+                    <input class="input-block" type="file" name="resume" id="resume" required>
+                </div>
+
+                <!-- Position -->
+                <div class="data-block">
+                    <label class="label-block">Position*</label>
+                    <select class="input-block" name="position" onchange="other_input(this)" required>
+                        <option value="">---Select Position---</option>
+                        <option value="Plumber" >Plumber</option>
+                        <option value="Electrician">Electrician</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input class="input-block" style="display:none" type="text" id="other_div" name="other_position">
+                </div>
+
+                <!-- First Name -->
+                <div class="data-block">
+                    <label class="label-block">First Name</label>
+                    <input class="input-block" type="text" name="first_name">
+                </div>
+
+                <!-- Last Name -->
+                <div class="data-block">
+                    <label class="label-block">Last Name</label>
+                    <input class="input-block" type="text" name="last_name">
+                </div>
+
+                <!-- Email Address -->
+                <div class="data-block">
+                    <label class="label-block">Email Address*</label>
+                    <input class="input-block" type="email" name="email" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="data-block">
+                    <label class="label-block">Phone Number*</label>
+                    <input class="input-block"type="tel" name="phone" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Submit</button>
+
+            </form>
+        </div>
+    </div>

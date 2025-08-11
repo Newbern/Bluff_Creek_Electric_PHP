@@ -1,0 +1,63 @@
+
+    
+    <div class="page-block">
+        <!-- Background Image -->
+        <img src="templates/static/bg.jpg" style="width:100%; aspect-ratio: 2 / 1; background-attachment: fixed;">
+
+        <!-- Paragraph -->
+        <p class="par-text">
+            We provide a full range of electrical services for both residential and commercial clients,
+            covering everything from general wiring and system upgrades to generator installations and utility pole work.
+            Whether you need reliable power solutions for your home, business, or new construction project,
+            we have the experience and tools to get the job done safely and efficiently.
+        </p>
+
+        <!-- Commercial & Residential -->
+        <!-- Tab Buttons -->
+        <div>
+            <div class="service-btn-container">
+                <button id="Resident" type="submit" class="service-tab-btn active" style="background-color:red;" onclick="Residential()">Residential</button>
+                <button id="Comm" type="submit" class="service-tab-btn" style="background-color:dodgerblue;" onclick="Commercial()">Commercial</button>
+            </div>
+            <!-- Container -->
+            <div class="service-tab-container">
+                <!-- Services -->
+                <!-- Residential -->
+                <div id="Resident-container" class="service-tab">
+                    <!-- Generators -->
+                    <div class="img-container">
+                        <a href="/projects">
+                            <img src="templates/static/homepage/Residental/Generator.jpg">
+                            <h1 class="text-cluster">Generators</h1>
+                        </a>
+                    </div>
+
+                    <!-- Electrical -->
+                    <div class="img-container">
+                        <a href="/projects">
+                            <img src="templates/static/homepage/Residental/Electrical.jpg">
+                            <h1 class="text-cluster">Electrical Needs</h1>
+                        </a>
+                    </div>
+                </div>
+                <!-- Commercial -->
+                <div id="Comm-container" class="service-tab" style="display:none">
+                    <!-- Utility Poles -->
+                    <div class="img-container">
+                        <a href="/projects">
+                            <img src="https://www.beltramielectric.com/sites/default/files/news/Touchstone_Energy_PowerLines_183.jpg">
+                            <h1 class="text-cluster">UtilityPoles</h1>
+                        </a>
+                    </div>
+
+                    <!-- Electrical -->
+                    <div class="img-container">
+                        <a href="/projects">
+                            <img src="templates/static/homepage/Commercial/Electrical.jpg">
+                            <h1 class="text-cluster">Electrical Needs</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

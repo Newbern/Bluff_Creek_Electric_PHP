@@ -1,0 +1,14 @@
+<?php
+// router.php
+if (php_sapi_name() === 'cli-server') {
+    $url = parse_url($_SERVER['REQUEST_URI']);
+    $file = __DIR__ . $url['path'];
+
+    // If the requested file exists, serve it
+    if (is_file($file)) {
+        return false;
+    }
+}
+
+// Fallback: Load index.php for all other requests
+require __DIR__ . '/index.php';
