@@ -3,6 +3,13 @@ include("Gmail.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST")
     {   
+        // Anti-bot check
+            if (!empty($_POST['company'])) {
+                // If the hidden field is filled out, it's likely a bot submission. Do not process the form.
+                http_response_code(200);
+                exit;
+            }
+            
         // Sending to (Bluff Creek Eletric LLC)
         // Getting Name Values
         $resume = $_POST['resume'] ?? '';
