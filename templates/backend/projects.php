@@ -1,6 +1,6 @@
 <?php 
 // FaceBook Web Token & ID
-$accessToken = "EAAu6DgzAZAXcBPJCKQpPHv6I4mk4c29FbGb85BTtj4wuZCfr9sBKyzvKvTEfcg6ji75lOSq6Wfvd13I9uqiMu9AFSLaUXyUEjQvSvAzDHs0sLZC8mAJ4k1cp8x5jlDwR4z3bBLxULLHOlnsSimR8UW78Q1BfXYJXMDddgVzJH8bV4uJ7eWESwn1WE4yaUmsmHqI7b3OShIGLYiEaN0F1s6HjzXX8rN3ctwEUXUZD";
+$accessToken = "EAAVXdURuduoBPeaSaqDpWk2UJXFheDXhbDsZAgEJVF1ZCP2mHushJp3ZA0ZCWXxYxRgqQuQORkmsgUT2ub1Mye62RHokhKwPbwTy2ks9ZBUyhi1T6z0ltnvbKtLBV7n7JWZBVx8i45TU5ZCzChAlGhBo2Qp0qwE1DwJKSKeuPWDX1ev86gVTPwNdDWUFhIwdttLRqL8XSxmRvGkw9VZAXZCnZCJGkeMhhG4BrSc836CqG43a4ZD";
 $pageId = "620911371115964";
 
 // FaceBook Post IDs
@@ -24,9 +24,45 @@ curl_close($ch);
 
 $data = json_decode($response, true);
 
-echo "<pre style='color:white'>";
-echo "<h1>Raw Data from Facebook API</h1>";
-var_dump($response);
-print_r($data);
-echo "</pre>";
+$clients_posts = [];
+$generators_posts = [];
+$electrical_needs_posts = [];
+$utility_poles_posts = [];
+
+
+for ($i = 0; $i < count($data['data']); $i++) {
+
+    $full_picture = $data['data'][$i]['full_picture'] ?? '';
+    $created_time = $data['data'][$i]['created_time'] ?? '';
+    $message = $data['data'][$i]['message'] ?? '';
+
+    // Check if the post ID is in any of the categories
+    if (in_array($data['data'][$i]['id'], $clients)) {
+        $clients_posts[] = [
+            'full_picture' => $full_picture,
+            'created_time' => $created_time,
+            'message' => $message
+        ];
+    } elseif (in_array($data['data'][$i]['id'], $generators)) {
+        $generators_posts[] = [
+            'full_picture' => $full_picture,
+            'created_time' => $created_time,
+            'message' => $message
+        ];
+    } elseif (in_array($data['data'][$i]['id'], $electrical_needs)) {
+        $electrical_needs_posts[] = [
+            'full_picture' => $full_picture,
+            'created_time' => $created_time,
+            'message' => $message
+        ];
+    } elseif (in_array($data['data'][$i]['id'], $utility_poles)) {
+        $utility_poles_posts[] = [
+            'full_picture' => $full_picture,
+            'created_time' => $created_time,
+            'message' => $message
+        ];
+    }
+}
+
+
 ?>

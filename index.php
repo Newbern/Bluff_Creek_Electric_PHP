@@ -32,7 +32,11 @@ if (!in_array($page, $allowedPages)){
 }
 
 // Defind Paths
-$content = "templates/pages/$page.html";
+if (file_exists("templates/pages/$page.html")){
+    $content = "templates/pages/$page.html";
+} else {
+    $content = "templates/pages/$page.php";
+}
 $styles = "templates/styles/$page.css";
 $JavaScript = "templates/controllers/$page.js";
 $backend = "templates/backend/$page.php";
